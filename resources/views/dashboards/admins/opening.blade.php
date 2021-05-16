@@ -3,7 +3,7 @@
 <head>
   <title>ICT Unit - Division of Tuguegarao City</title>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
@@ -293,62 +293,66 @@
     <!-- end common js -->
     <script type="text/javascript">
         $(function(){
-          $.ajaxSetup({
+			$.ajaxSetup({
 				headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
 			});
 			var table = $('.datatable').DataTable({
-                "dom": 'Bfrtip',
-                "buttons": [
+        dom: 'Bfrtip',
+                buttons: [
                    'excel', 'pdf', 'print'
                 ],
-                "processing": true,
-                "serverSide": true,
-				        "responsive": true,
-                "ajax": '{{ route('admin.opening') }}',
-                "columns": [
+                processing: true,
+                serverSide: true,
+				responsive: true,
+                ajax: "{{ route('admin.national') }}",
+                columns: [
                     {
-                        "data": 'par_image',
-                        "name": 'par_image',
-                        "render": function (data, type, row, meta) {
+                        data: 'par_image',
+                        name: 'par_image',
+                        render: function (data, type, row, meta) {
                             return '<img src=" {{asset('images')}}/' + data +'" height="50" width="50"/>';
                         }
                     },
                     {
-                        "data": 'email',
-                        "name": 'email'
+                        data: 'email',
+                        name: 'email'
                     },
 					          {
-                        "data": 'name_participant',
-                        "name": 'name_participant'
+                        data: 'name_participant',
+                        name: 'name_participant'
                     },
 					          {
-                        "data": 'school',
-                        "name": 'school'
+                        data: 'school',
+                        name: 'school'
                     },
 					          {
-                        "data": 'district',
-                        "name": 'district'
+                        data: 'district',
+                        name: 'district'
                     },
                     {
-                        "data": 'activities',
-                        "name": 'activities'
+                        data: 'activities',
+                        name: 'activities'
                     },
                     {
-                        "data": 'name_coach',
-                        "name": 'name_coach'
+                        data: 'name_coach',
+                        name: 'name_coach'
                     },
                     {
-                        "data": 'co_image',
-                        "name": 'co_image',
-                        "render": function (data, type, row, meta) {
+                        data: 'co_image',
+                        name: 'co_image',
+                        render: function (data, type, row, meta) {
                             return '<img src=" {{asset('images')}}/' + data +'"/>';
                         }
                     },
                    
-              ]
-          });     
+                ]
+            });
+            // setInterval(function() {
+            //     table.draw();
+            // }, 500);
+			//create
 		})
     </script>
 
