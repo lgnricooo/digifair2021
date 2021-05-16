@@ -292,8 +292,8 @@
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
     <script type="text/javascript">
-        $(function(){
-			$.ajaxSetup({
+        $(document).ready(function(){
+          $.ajaxSetup({
 				headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
@@ -306,50 +306,50 @@
                 "processing": true,
                 "serverSide": true,
 				        "responsive": true,
-                ajax: "{{ route('admin.opening') }}",
+                "ajax": "{{ route('admin.opening') }}",
                 "columns": [
                     {
-                        data: 'par_image',
-                        name: 'par_image',
-                        render: function (data, type, row, meta) {
+                        "data": 'par_image',
+                        "name": 'par_image',
+                        "render": function (data, type, row, meta) {
                             return '<img src=" {{asset('images')}}/' + data +'" height="50" width="50"/>';
                         }
                     },
                     {
-                        data: 'email',
-                        name: 'email'
+                        "data": 'email',
+                        "name": 'email'
                     },
 					          {
-                        data: 'name_participant',
-                        name: 'name_participant'
+                        "data": 'name_participant',
+                        "name": 'name_participant'
                     },
 					          {
-                        data: 'school',
-                        name: 'school'
+                        "data": 'school',
+                        "name": 'school'
                     },
 					          {
-                        data: 'district',
-                        name: 'district'
+                        "data": 'district',
+                        "name": 'district'
                     },
                     {
-                        data: 'activities',
-                        name: 'activities'
+                        "data": 'activities',
+                        "name": 'activities'
                     },
                     {
-                        data: 'name_coach',
-                        name: 'name_coach'
+                        "data": 'name_coach',
+                        "name": 'name_coach'
                     },
                     {
-                        data: 'co_image',
-                        name: 'co_image',
-                        render: function (data, type, row, meta) {
+                        "data": 'co_image',
+                        "name": 'co_image',
+                        "render": function (data, type, row, meta) {
                             return '<img src=" {{asset('images')}}/' + data +'"/>';
                         }
                     },
                    
               ]
           });     
-		})
+		)})
     </script>
 
     </body>
