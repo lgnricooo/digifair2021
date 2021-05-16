@@ -299,15 +299,15 @@
                 }
 			});
 			var table = $('.datatable').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
+                "dom": 'Bfrtip',
+                "buttons": [
                    'excel', 'pdf', 'print'
                 ],
-                processing: true,
-                serverSide: true,
-				        responsive: true,
+                "processing": true,
+                "serverSide": true,
+				        "responsive": true,
                 ajax: "{{ route('admin.opening') }}",
-                columns: [
+                "columns": [
                     {
                         data: 'par_image',
                         name: 'par_image',
@@ -347,12 +347,8 @@
                         }
                     },
                    
-                ]
-            });
-            // setInterval(function() {
-            //     table.draw();
-            // }, 500);
-			//create
+              ]
+          });     
 		})
     </script>
 
