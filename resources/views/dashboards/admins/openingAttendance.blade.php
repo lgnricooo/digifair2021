@@ -325,17 +325,18 @@
         $(function(){
 			$.ajaxSetup({
 				headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-type': 'application/json; charset=UTF-8'
                 }
 			});
 			var table = $('.datatable').DataTable({
-        dom: 'Bfrtip',
+                dom: 'Bfrtip',
                 buttons: [
                    'excel', 'pdf', 'print'
                 ],
                 processing: true,
                 serverSide: true,
-				responsive: true,
+				        responsive: true,
                 ajax: "{{ route('admin.openingAttendance') }}",
                 columns: [
                     {
