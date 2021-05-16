@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::middleware(['middleware'=>'PreventBackHistory'])->group(function(){
+    Auth::routes();
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/registration', [App\Http\Controllers\RegistrationController::class, 'index'])->name('registration');
 Route::post('/store', [App\Http\Controllers\RegistrationController::class, 'store'])->name('create.registered');
 
-Route::group(['prefix'=>'ADMIN', 'middleware'=>['isAdmin','auth', 'PreventBackHistory']], function(){
+Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHistory']], function(){
     Route::get('dashboard', [App\Http\Controllers\RegistrationController::class, 'adminView'])->name('admin.dashboard');
     Route::get('opening', [App\Http\Controllers\RegistrationController::class, 'opening'])->name('admin.opening');
     Route::get('kamustahan', [App\Http\Controllers\RegistrationController::class, 'kamustahan'])->name('admin.kamustahan');
