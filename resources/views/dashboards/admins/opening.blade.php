@@ -299,11 +299,12 @@
                 }
 			});
 			var table = $('.datatable').DataTable({
-        dom: 'Bfrtip',
+                dom: 'Bfrtip',
                 buttons: [
                    'excel', 'pdf', 'print'
                 ],
                 processing: true,
+                serverSide: true,
 				        responsive: true,
                 ajax: "{{ route('admin.opening') }}",
                 columns: [
