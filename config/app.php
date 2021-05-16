@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://digifair2021-registration.herokuapp.com/'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -167,7 +167,7 @@ return [
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        Yajra\DataTables\ButtonsServiceProvider::class,
+         Yajra\DataTables\ButtonsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -233,5 +233,5 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
-
+    
 ];

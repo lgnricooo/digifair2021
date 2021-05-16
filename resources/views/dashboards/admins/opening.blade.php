@@ -306,7 +306,7 @@
                 "processing": true,
                 "serverSide": true,
 				        "responsive": true,
-                "ajax": "{{ route('admin.opening') }}",
+                "ajax": '{{ route('admin.opening') }}',
                 "columns": [
                     {
                         "data": 'par_image',
