@@ -8,7 +8,7 @@
 <head>
   <title>ICT Unit - Division of Tuguegarao City</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- CSRF Token -->
