@@ -304,8 +304,7 @@
                    'excel', 'pdf', 'print'
                 ],
                 processing: true,
-                serverSide: true,
-				responsive: true,
+				        responsive: true,
                 ajax: "{{ route('admin.opening') }}",
                 columns: [
                     {
