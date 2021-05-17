@@ -9,23 +9,22 @@
   
   <!-- CSRF Token -->
   
-  <link rel="shortcut icon" href="{{asset('/homeAssets/images/ictu.png')}}">
-
-  <!-- plugin css -->
   <link href="{{asset('design/assets/fonts/feather-font/css/iconfont.css')}}" rel="stylesheet" />
   <link href="{{asset('design/assets/plugins/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet" />
   <link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
   <!-- end plugin css -->
 
-  
-  <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    
   <!-- common css -->
-  
+  <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
   </head>
 <body>
 
@@ -296,7 +295,12 @@
     <!-- end base js -->
     <script type="text/javascript">
       $(document).ready(function(){
-          $('.datatable').DataTable();
+          $('.datatable').DataTable({
+              dom: 'Bfrtip',
+              buttons: [
+                   'excel', 'pdf', 'print'
+              ]
+          });
       })
     </script>
     <!-- plugin js -->
