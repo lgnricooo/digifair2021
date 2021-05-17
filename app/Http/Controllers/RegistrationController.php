@@ -326,6 +326,6 @@ class RegistrationController extends Controller
         $registration->status =  $request->get('status');
         $registration->save();
         Alert::success('Success', 'Updated Succesfully');
-        return url()->previous();
+        return redirect()->previous();
     }
 }
