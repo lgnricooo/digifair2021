@@ -208,7 +208,7 @@
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile02"
                                                     aria-describedby="inputGroupFileAddon02" name="co_image">
-                                                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                                    <label class="custom-file-label" id="lol" for="inputGroupFile02">Choose file</label>
                                                 </div>
                                             </div>
                                             <p><i>Note: If not STUDENT, please select the same image</i></p>
@@ -230,17 +230,10 @@
 </div>
 
     <!-- base js -->
-    <script>
-            $('#inputGroupFile01').change(function() {
-                var fileName = $(this).val();
-                //replace the "Choose a file" label
-                $(this).next('.custom-file-label1').html(fileName);
-            });
-            $('#inputGroupFile02').change(function() {
-                var fileName = $(this).val();
-                //replace the "Choose a file" label
-                $(this).next('.custom-file-label2').html(fileName);
-            });
+    <script type="text/javascript">
+            document.getElementById("inputGroupFile02").onchange = function() {
+            document.getElementById("lol").value = this.value;
+            };
         </script>
     <script src="{{asset('design/js/app.js')}}"></script>
     <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
