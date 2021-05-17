@@ -154,7 +154,7 @@ class RegistrationController extends Controller
 
 
     public function opening(){
-        $registration = Registration::where('activities', 'Opening Program/Contest Orientation');
+        $registration = Registration::all();
         return view('dashboards.admins.opening', compact('registration'));
     }
 
