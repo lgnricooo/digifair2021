@@ -235,6 +235,7 @@
         <h3 class="card-title">Update Attendance</h3>
             <div>
                 <form method="post" action="{{ route('admin.update', $registration->id) }}">
+                @csrf
                 <div class="form-group">
                     <label for="status">Status:</label>
                     <select class="form-control" id="status" name="status" required="" value="{{ $registration->status }}">
@@ -243,6 +244,9 @@
                         <option value="Not Attended">Not Attended</option>
                     </select> 
                  </div>
+                 <div class="mt-3">
+                    <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">Update</button>
+                </div>
                 </form>
             </div>
       </div>
