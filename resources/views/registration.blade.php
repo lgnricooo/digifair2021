@@ -240,6 +240,13 @@
 
     <!-- plugin js -->
         <!-- end plugin js -->
+        <script>
+            $('#inputGroupFile01').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#inputGroupFile01')[0].files[0].name;
+                $(this).prev('label').text(file);
+                });
+        </script>
 
     <!-- common js -->
     
@@ -248,12 +255,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
-            $('#inputGroupFile01').on('change',function(){
-                //get the file name
-                var fileName = $(this).val();
-                //replace the "Choose a file" label
-                $(this).next('.custom-file-label').html(fileName);
-            })
+            $('#inputGroupFile01').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#inputGroupFile01')[0].files[0].name;
+                $(this).prev('label').text(file);
+                });
         </script>
     </body>
     @include('sweetalert::alert')
