@@ -14,17 +14,11 @@
   <link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
   <!-- end plugin css -->
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+  
     
   <!-- common css -->
   <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
   </head>
 <body>
 
@@ -280,37 +274,18 @@
 
     <!-- base js -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+   
     <script src="{{asset('design/js/app.js')}}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
-    <script src="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+   
     <!-- end base js -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $('.datatable').DataTable({
-              dom: 'Bfrtip',
-              buttons: [
-                   'excel', 'pdf', 'print'
-              ]
-          });
-      })
-    </script>
+    
     <!-- plugin js -->
         <!-- end plugin js -->
 
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    
     </body>
 
 <!-- Mirrored from www.nobleui.com/laravel/template/light/tables/basic-tables by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:10 GMT -->
