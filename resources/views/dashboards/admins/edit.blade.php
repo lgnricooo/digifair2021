@@ -293,6 +293,6 @@
     
 
     </body>
-
+    @include('sweetalert::alert')
 <!-- Mirrored from www.nobleui.com/laravel/template/light/tables/basic-tables by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:10 GMT -->
 </html>

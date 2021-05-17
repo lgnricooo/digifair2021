@@ -325,7 +325,7 @@ class RegistrationController extends Controller
         $registration = Registration::find($id);
         $registration->status =  $request->get('status');
         $registration->save();
-        Alert::success('Success', 'Registered Succesfully');
-        return redirect()->back();
+        Alert::success('Success', 'Updated Succesfully');
+        return url()->previous();
     }
 }

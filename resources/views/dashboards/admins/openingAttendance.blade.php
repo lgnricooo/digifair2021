@@ -273,7 +273,7 @@
                     <th>District</th>
                     <th>Activity</th>
                     <th>Status</th>
-                    <td colspan=3>Actions</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
