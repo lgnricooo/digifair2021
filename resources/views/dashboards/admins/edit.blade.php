@@ -235,6 +235,7 @@
         <h3 class="card-title">Update Attendance</h3>
             <div>
                 <form method="post" action="{{ route('admin.update', $registration->id) }}">
+                @method('PUT')
                 @csrf
                 <div class="form-group">
                     <label for="status">Status:</label>
