@@ -17,17 +17,10 @@
   <link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
   <!-- end plugin css -->
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+  
     
   <!-- common css -->
-  <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
   </head>
 <body>
@@ -248,6 +241,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($registration as $register)
+                  <tr>
+                      <td>{{$register->par_image}}</td>
+                      <td>{{$register->email}}</td>
+                      <td>{{$register->name_participant}}</td>
+                      <td>{{$register->school}}</td>
+                      <td>{{$register->district}}</td>
+                      <td>{{$register->activities}}</td>
+                      <td>{{$register->co_name}}</td>
+                      <td>{{$register->co_image}}</td>
+                  </tr>
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -271,18 +276,12 @@
   
 
     <!-- base js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+ 
     <script src="{{asset('design/js/app.js')}}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    
     <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
     <!-- end base js -->
 
     <!-- plugin js -->
@@ -291,70 +290,6 @@
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-    <script type="text/javascript">
-        $(function(){
-			$.ajaxSetup({
-				headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-			});
-			var table = $('.datatable').DataTable({
-        dom: 'Bfrtip',
-                buttons: [
-                   'excel', 'pdf', 'print'
-                ],
-                processing: true,
-                serverSide: true,
-				        responsive: true,
-                ajax: "{{ url('closing') }}",
-                columns: [
-                    {
-                        data: 'par_image',
-                        name: 'par_image',
-                        render: function (data, type, row, meta) {
-                            return '<img src=" {{asset('images')}}/' + data +'" height="50" width="50"/>';
-                        }
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-					          {
-                        data: 'name_participant',
-                        name: 'name_participant'
-                    },
-					          {
-                        data: 'school',
-                        name: 'school'
-                    },
-					          {
-                        data: 'district',
-                        name: 'district'
-                    },
-                    {
-                        data: 'activities',
-                        name: 'activities'
-                    },
-                    {
-                        data: 'name_coach',
-                        name: 'name_coach'
-                    },
-                    {
-                        data: 'co_image',
-                        name: 'co_image',
-                        render: function (data, type, row, meta) {
-                            return '<img src=" {{asset('images')}}/' + data +'"/>';
-                        }
-                    },
-                   
-                ]
-            });
-            // setInterval(function() {
-            //     table.draw();
-            // }, 500);
-			//create
-		})
-    </script>
 
     </body>
 
