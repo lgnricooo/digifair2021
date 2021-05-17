@@ -70,6 +70,7 @@ class RegistrationController extends Controller
         $registration->activities = $request->activities;
         $registration->par_image = $newImagePar;
         $registration->co_image = $newImageCo;
+        $registration->status = 'Not Attended';
 
         if($registration->save()){
             Alert::success('Success', 'Registered Succesfully');
