@@ -250,8 +250,8 @@ class RegistrationController extends Controller
         return view('dashboards.admins.handoutAttendance', compact('registration'));
     }
 
-    public function closing(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Closing Program/Awarding Ceremony');
+    public function closing(){
+        $registration = Registration::where('activities', 'Closing Program/Awarding Ceremony');
         return view('dashboards.admins.closing', compact('registration'));
     }
 
