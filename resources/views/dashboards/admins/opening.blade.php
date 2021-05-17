@@ -225,8 +225,8 @@
     <div class="card">
       <div class="card-body">
         <h6 class="card-title">Closing Ceremony Registered Participants</h6>
-        <div class="table-responsive pt-1">
-          <table class="table table-bordered datatable" style="width: 20px">
+        <div class="table-responsive pt-2">
+          <table class="table table-bordered datatable">
             <thead>
                 <tr>
                     <th>Participant Image</th>
@@ -249,8 +249,8 @@
                       <td>{{ $register->school }}</td>
                       <td>{{ $register->district }}</td>
                       <td>{{ $register->activities }}</td>
-                      <td>{{ $register->co_name }}</td>
-                      <td>{{ $register->co_image }}</td>
+                      <td>{{ $register->name_coach }}</td>
+                      <td><img src="{{asset('images/{{ $register->co_image }}')}}" alt="" height="50" width="50"></td>
                   </tr>
                 @endforeach
             </tbody>
