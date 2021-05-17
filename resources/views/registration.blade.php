@@ -147,7 +147,8 @@
                                         <div class="form-group">
                                             <label for="exampleInputUsername1">Name of Coach:</label>
                                             <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Name" name="name_coach">
-                                            <p><i>Note: If Teacher, Coach, TWG Member, ALS Teacher and Higher Position, put N/A</i></p>
+                                            <p><i>Note: If STUDENT, indicate Coach's Complete Name</i></p>
+                                            <p><i>Note: If not STUDENT, put N/A</i></p>
                                         </div>
                                         <div class="form-group">
                                             <label for="activities">Activities:</label>
@@ -198,7 +199,7 @@
                                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                 </div>
                                             </div>
-                                            <p><i>Note: If Teacher, Coach, TWG Member, ALS Teacher and Higher Position, select the same image</i></p>
+                                            <p><i>Note: If not STUDENT, please select the same image</i></p>
                                         </div>
                                         
                                         <div class="mt-3">
