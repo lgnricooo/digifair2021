@@ -192,7 +192,7 @@
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name="par_image">
-                                                    <label>Choose file</label>
+                                                    
                                                 </div>
                                             </div>
                                             <span class="text-danger">@error('par_image'){{ $message }}@enderror</span>
@@ -203,7 +203,7 @@
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name="co_image">
-                                                    <label>Choose file</label>
+                                                   
                                                 </div>
                                             </div>
                                             <p><i>Note: If not STUDENT, please select the same image</i></p>
