@@ -210,9 +210,9 @@
                                                 </div>
                                                 
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                    aria-describedby="inputGroupFileAddon01" name="co_image">
-                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile02"
+                                                    aria-describedby="inputGroupFileAddon02" name="co_image">
+                                                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                                                 </div>
                                             </div>
                                             <p><i>Note: If not STUDENT, please select the same image</i></p>
@@ -245,7 +245,12 @@
                 var i = $(this).prev('label').clone();
                 var file = $('#inputGroupFile01')[0].files[0].name;
                 $(this).prev('label').text(file);
-                });
+            });
+            $('#inputGroupFile02').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#inputGroupFile02')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
         </script>
 
     <!-- common js -->
