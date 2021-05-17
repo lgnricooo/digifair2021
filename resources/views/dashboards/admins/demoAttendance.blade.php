@@ -264,34 +264,33 @@
         <h6 class="card-title">Live Demo Teaching Attendance</h6>
         <div class="table-responsive pt-1">
         <table class="table table-bordered datatable">
-            <thead>
-                <tr>
-                    <th>Participant Image</th>
-                    <th>Email</th>
-                    <th>Name of Participant</th>
-                    <th>School</th>
-                    <th>District</th>
-                    <th>Activity</th>
-                    <th>Coach Name</th>
-                    <th>Coach Image</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($registration as $register)
+              <thead>
                   <tr>
-                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
-                      <td>{{ $register->email }}</td>
-                      <td>{{ $register->name_participant }}</td>
-                      <td>{{ $register->school }}</td>
-                      <td>{{ $register->district }}</td>
-                      <td>{{ $register->activities }}</td>
-                      <td>{{ $register->name_coach }}</td>
-                      <td><img src="{{asset('homeAssets/' . $register->co_image)}}" alt="" height="50" width="50"></td>
+                      <th>Participant Image</th>
+                      <th>Email</th>
+                      <th>Name of Participant</th>
+                      <th>School</th>
+                      <th>District</th>
+                      <th>Activity</th>
+                      <th>Status</th>
+                      <td>Actions</td>
                   </tr>
-                @endforeach
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                  @foreach ($registration as $register)
+                    <tr>
+                        <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
+                        <td>{{ $register->email }}</td>
+                        <td>{{ $register->name_participant }}</td>
+                        <td>{{ $register->school }}</td>
+                        <td>{{ $register->district }}</td>
+                        <td>{{ $register->activities }}</td>
+                        <td>{{ $register->status }}</td>
+                        <td><a href="{{ route('admin.edit', $register->id) }}" class="btn btn-primary">Edit</a></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+            </table>
         </div>
       </div>
     </div>
