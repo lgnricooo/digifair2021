@@ -187,6 +187,7 @@
                                             </select>
                                             <span class="text-danger">@error('activities'){{ $message }}@enderror</span>
                                         </div>
+                                        <p><i>Note: Accepted image type (jpeg,jpg,png) with maximum of 10MB</i></p>
                                         <div class="form-group">
                                             <label>Participant Image:</label>
                                             <div class="input-group">
