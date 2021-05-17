@@ -39,26 +39,6 @@ class RegistrationController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function register(Request $request){
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->role = 'ADMIN';
-        $user->password = Hash::make($request->password);
-
-        if($user->save()){
-            Alert::success('Success', 'Registered Succesfully');
-            return redirect()->back();
-        }else{
-            return redirect()->back()->with('error', 'Failed to Register');
-    }
-
     public function store(Request $request)
     {
        $request->validate([
