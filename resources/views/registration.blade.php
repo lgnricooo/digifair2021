@@ -191,11 +191,8 @@
                                             <span class="text-danger">@error('activities'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="image1">Participant Image:</label>
+                                            <label>Participant Image:</label>
                                             <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="image1">Upload</span>
-                                                </div>
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile01"
                                                     aria-describedby="inputGroupFileAddon01" name="par_image">
@@ -206,12 +203,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="image2">Coach Image:</label>
+                                            <label >Coach Image:</label>
                                             <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="image2">Upload</span>
-                                                </div>
-                                                
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile02"
                                                     aria-describedby="inputGroupFileAddon02" name="co_image">
