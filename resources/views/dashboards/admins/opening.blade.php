@@ -243,7 +243,7 @@
             <tbody>
                 @foreach ($registration as $register)
                   <tr>
-                      <td>{{ $register->par_image }}</td>
+                      <td><img src="{{asset('images/'. $register->par_image)}}" alt="" height="50" width="50"></td>
                       <td>{{ $register->email }}</td>
                       <td>{{ $register->name_participant }}</td>
                       <td>{{ $register->school }}</td>
