@@ -53,10 +53,10 @@ class RegistrationController extends Controller
         ]);
 
         $newImagePar = time(). '-' . $request->name_participant. '.'. $request->par_image->extension();
-        $request->par_image->move(public_path('images'), $newImagePar);
+        $request->par_image->move(public_path('homeAssets'), $newImagePar);
         
         $newImageCo = time(). '-' . $request->name_coach. '.'. $request->co_image->extension();
-        $request->co_image->move(public_path('images'), $newImageCo);
+        $request->co_image->move(public_path('homeAssets'), $newImageCo);
 
         if($validator->failed()){
             Alert::error('Error!', $validator->messages()->first());
