@@ -281,8 +281,10 @@
 
     <!-- base js -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="{{asset('design/js/app.js')}}"></script>
-    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
@@ -294,7 +296,7 @@
     <!-- end base js -->
     <script type="text/javascript">
       $(document).ready(function(){
-          $('.datatable').Datatable();
+          $('.datatable').DataTable();
       })
     </script>
     <!-- plugin js -->
@@ -303,7 +305,8 @@
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     </body>
 
 <!-- Mirrored from www.nobleui.com/laravel/template/light/tables/basic-tables by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:10 GMT -->
