@@ -305,8 +305,8 @@
                 ],
                 processing: true,
                 serverSide: true,
-				responsive: true,
-                ajax: "{{ route('admin.closing') }}",
+				        responsive: true,
+                ajax: "{{ url('closing') }}",
                 columns: [
                     {
                         data: 'par_image',
