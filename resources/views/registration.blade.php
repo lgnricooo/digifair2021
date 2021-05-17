@@ -89,6 +89,7 @@
                                                 <option value="Capatan Integrated School (Elem)">Capatan Integrated School (Elem)</option>
                                                 <option value="Namabbalan Integrated School (Elem)">Namabbalan Integrated School (Elem)</option>
                                                 <option value="Libag Integrated School (Elem)">Libag Integrated School (Elem)</option>
+                                                <option value="Gosi Elementary School">Gosi Elementary School</option>
                                                 <option disabled>-----------West District-------------</option>
                                                 <option value="Buntun Elementary School">Buntun Elementary School</option>
                                                 <option value="Ugac Elementary School">Ugac Elementary School</option>
