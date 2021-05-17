@@ -250,7 +250,7 @@
                       <td>{{ $register->district }}</td>
                       <td>{{ $register->activities }}</td>
                       <td>{{ $register->name_coach }}</td>
-                      <td><img src="{{asset('images/{{ $register->co_image }}')}}" alt="" height="50" width="50"></td>
+                      <td><img src="{{asset('images')}}/{{ $register->co_image }}" alt="" height="50" width="50"></td>
                   </tr>
                 @endforeach
             </tbody>
