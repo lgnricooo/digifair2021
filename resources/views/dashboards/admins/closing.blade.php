@@ -18,7 +18,7 @@
   <!-- end plugin css -->
 
   
-    
+  <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
   <!-- common css -->
   
 
@@ -229,27 +229,28 @@
           <table class="table table-bordered datatable" style="width: 20px">
             <thead>
                 <tr>
-                    
+                    <th>Participant Image</th>
                     <th>Email</th>
                     <th>Name of Participant</th>
                     <th>School</th>
                     <th>District</th>
                     <th>Activity</th>
                     <th>Coach Name</th>
-                    
+                    <th>Coach Image</th>
                     
                 </tr>
             </thead>
             <tbody>
                 @foreach ($registration as $register)
                   <tr>
-                      
+                      <td>{{ $register->par_image }}</td>
                       <td>{{ $register->email }}</td>
                       <td>{{ $register->name_participant }}</td>
                       <td>{{ $register->school }}</td>
                       <td>{{ $register->district }}</td>
                       <td>{{ $register->activities }}</td>
-                      
+                      <td>{{ $register->co_name }}</td>
+                      <td>{{ $register->co_image }}</td>
                   </tr>
                 @endforeach
             </tbody>

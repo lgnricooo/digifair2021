@@ -153,24 +153,8 @@ class RegistrationController extends Controller
     }
 
 
-    public function opening(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Opening Program/Contest Orientation');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function opening(){
+        $registration = Registration::where('activities', 'Opening Program/Contest Orientation');
         return view('dashboards.admins.opening', compact('registration'));
     }
 
