@@ -208,10 +208,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="image2">Upload</span>
                                                 </div>
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="co_image" required>
-                                                    <label class="custom-file-label">Choose file...</label>
-                                                </div>
+                                                
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile01"
                                                     aria-describedby="inputGroupFileAddon01" name="co_image">
