@@ -59,4 +59,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
     Route::get('digital/attendance', [App\Http\Controllers\RegistrationController::class, 'digitalAttendance'])->name('admin.digitalAttendance');
     Route::get('closing/attendance', [App\Http\Controllers\RegistrationController::class, 'closingAttendance'])->name('admin.closingAttendance');
     Route::get('export', [App\Http\Controllers\RegistrationController::class, 'exportView'])->name('admin.export');
+    Route::get('/registration/{id}/edit', [RegistrationController::class, 'statusEdit'])->name('admin.edit');
+    Route::put('/registration/{id}/update', [RegistrationController::class, 'statusUpdate'])->name('admin.update');
 });

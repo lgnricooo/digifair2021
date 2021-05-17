@@ -219,7 +219,7 @@ class RegistrationController extends Controller
     }
 
     public function plenT(){
-        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')-get();
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')->get();
         return view('dashboards.admins.plent', compact('registration'));
     }
 
@@ -314,5 +314,18 @@ class RegistrationController extends Controller
         return view('dashboards.admins.kamustahanAttendance', compact('registration'));
     }
 
-    
+    public function statusEdit($id)
+    {
+        $registration = Registration::find($id);
+        return view('dashboards.admins.edit', compact('registration'));
+    }
+
+    public function statusUpdate(Request $request, $id)
+    {
+        $registration = Registration::find($id);
+        $registration->status =  $request->get('status');
+        $registration->save();
+        Alert::success('Success', 'Registered Succesfully');
+        return redirect()->back();
+    }
 }

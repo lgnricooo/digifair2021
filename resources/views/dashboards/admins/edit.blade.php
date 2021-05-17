@@ -17,7 +17,6 @@
   <link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
   <!-- end plugin css -->
 
-  
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     
@@ -29,7 +28,6 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
-  <!-- end common css -->
 
   </head>
 <body>
@@ -219,79 +217,34 @@
       </li>
     </ul>
   </div>
-</nav>      <div class="page-content">
+</nav>     
+<div class="page-content">
         <nav class="page-breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Attendance</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Opening Ceremony</li>
+    <li class="breadcrumb-item"><a href="#">Update</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Attendance</li>
   </ol>
 </nav>
 
-{{-- edit modal --}}
-    <div class="modal fade" id="ajaxModel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modelHeading"></h4>
-                </div>
-                <div class="modal-body">
-                    <form id="userForm" name="userForm" class="form-horizontal">
-                        <input type="hidden" name="user_id" id="user_id">
-                        <h4>Are you sure you want to change the status to Attended?<h4>
-                        <div class="form-group">
-                            <label for="activities">Status:</label>
-                              <select class="form-control" id="status" name="status">
-                                <option default>Select Activity</option>
-                                <option value="Not Attended">Not Attended</option>
-                                <option value="Attended">Attended</option>
-                              </select> 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 <div class="row">
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h6 class="card-title">Opening Program Attendance</h6>
-        <div class="table-responsive pt-1">
-        <table class="table table-bordered datatable">
-            <thead>
-                <tr>
-                    <th>Participant Image</th>
-                    <th>Email</th>
-                    <th>Name of Participant</th>
-                    <th>School</th>
-                    <th>District</th>
-                    <th>Activity</th>
-                    <th>Status</th>
-                    <td colspan=3>Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($registration as $register)
-                  <tr>
-                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
-                      <td>{{ $register->email }}</td>
-                      <td>{{ $register->name_participant }}</td>
-                      <td>{{ $register->school }}</td>
-                      <td>{{ $register->district }}</td>
-                      <td>{{ $register->activities }}</td>
-                      <td>{{ $register->status }}</td>
-                      <td><a href="{{ route('admin.edit', $register->id) }}" class="btn btn-primary">Edit</a></td>
-                  </tr>
-                @endforeach
-            </tbody>
-          </table>
-        </div>
+        <h3 class="card-title">Update Attendance</h3>
+            <div>
+                <form method="post" action="{{ route('admin.update', $registration->id) }}">
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select class="form-control" id="status" name="status" required="" value="{{ $registration->status }}">
+                        <option>Select Status</option>
+                        <option value="Attended">Attended</option>
+                        <option value="Not Attended">Not Attended</option>
+                    </select> 
+                 </div>
+                </form>
+            </div>
       </div>
     </div>
   </div>
@@ -325,26 +278,16 @@
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
     <!-- end base js -->
-
+    
     <!-- plugin js -->
         <!-- end plugin js -->
-        <script type="text/javascript">
-      $(document).ready(function(){
-        $('.datatable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-              'excel', 'pdf', 'print'
-            ]
-        });
-      });
-    </script>
+
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
     
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
     </body>
-    @include('sweetalert::alert')
+
 <!-- Mirrored from www.nobleui.com/laravel/template/light/tables/basic-tables by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:10 GMT -->
 </html>
