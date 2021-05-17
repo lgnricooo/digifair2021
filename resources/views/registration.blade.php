@@ -20,6 +20,9 @@
   <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
   <!-- end common css -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </head>
 <body >
@@ -196,7 +199,7 @@
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile01"
                                                     aria-describedby="inputGroupFileAddon01" name="par_image">
-                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                    <label class="custom-file-label1" for="inputGroupFile01">Choose file</label>
                                                 </div>
                                             </div>
                                             <span class="text-danger">@error('par_image'){{ $message }}@enderror</span>
@@ -212,7 +215,7 @@
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile02"
                                                     aria-describedby="inputGroupFileAddon02" name="co_image">
-                                                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                                    <label class="custom-file-label2" for="inputGroupFile02">Choose file</label>
                                                 </div>
                                             </div>
                                             <p><i>Note: If not STUDENT, please select the same image</i></p>
@@ -234,38 +237,31 @@
 </div>
 
     <!-- base js -->
+    <script>
+            $('#inputGroupFile01').change(function() {
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label1').html(fileName);
+            });
+            $('#inputGroupFile02').change(function() {
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label2').html(fileName);
+            });
+        </script>
     <script src="{{asset('design/js/app.js')}}"></script>
     <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
     <!-- end base js -->
 
     <!-- plugin js -->
         <!-- end plugin js -->
-        <script>
-            $('#inputGroupFile01').change(function() {
-                var i = $(this).prev('label').clone();
-                var file = $('#inputGroupFile01')[0].files[0].name;
-                $(this).prev('label').text(file);
-            });
-            $('#inputGroupFile02').change(function() {
-                var i = $(this).prev('label').clone();
-                var file = $('#inputGroupFile02')[0].files[0].name;
-                $(this).prev('label').text(file);
-            });
-        </script>
+        
 
     <!-- common js -->
     
     <!-- end common js -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-            $('#inputGroupFile01').change(function() {
-                var i = $(this).prev('label').clone();
-                var file = $('#inputGroupFile01')[0].files[0].name;
-                $(this).prev('label').text(file);
-                });
-        </script>
+    
+   
     </body>
     @include('sweetalert::alert')
 <!-- Mirrored from www.nobleui.com/laravel/template/light/auth/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:15 GMT -->
