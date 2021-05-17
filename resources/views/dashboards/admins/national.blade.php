@@ -299,7 +299,16 @@
 
     <!-- plugin js -->
         <!-- end plugin js -->
-
+        <script type="text/javascript">
+      $(document).ready(function(){
+        $('.datatable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+              'excel', 'pdf', 'print'
+            ]
+        });
+      });
+    </script>
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->

@@ -293,14 +293,14 @@
    
     <!-- end base js -->
     <script type="text/javascript">
-    $(document).ready(function(){
-      $('.datatable').DataTable({
-          dom: 'Bfrtip',
-          buttons: [
-            'excel', 'pdf', 'print'
-          ]
+      $(document).ready(function(){
+        $('.datatable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+              'excel', 'pdf', 'print'
+            ]
+        });
       });
-    });
     </script>
     <!-- plugin js -->
         <!-- end plugin js -->

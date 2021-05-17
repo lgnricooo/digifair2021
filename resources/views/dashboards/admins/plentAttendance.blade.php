@@ -264,7 +264,35 @@
       <div class="card-body">
         <h6 class="card-title">Plenary Session (Teachers) Attendance</h6>
         <div class="table-responsive pt-1">
-          
+        <table class="table table-bordered datatable">
+            <thead>
+                <tr>
+                    <th>Participant Image</th>
+                    <th>Email</th>
+                    <th>Name of Participant</th>
+                    <th>School</th>
+                    <th>District</th>
+                    <th>Activity</th>
+                    <th>Coach Name</th>
+                    <th>Coach Image</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($registration as $register)
+                  <tr>
+                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
+                      <td>{{ $register->email }}</td>
+                      <td>{{ $register->name_participant }}</td>
+                      <td>{{ $register->school }}</td>
+                      <td>{{ $register->district }}</td>
+                      <td>{{ $register->activities }}</td>
+                      <td>{{ $register->name_coach }}</td>
+                      <td><img src="{{asset('homeAssets/' . $register->co_image)}}" alt="" height="50" width="50"></td>
+                  </tr>
+                @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -306,35 +334,7 @@
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-    <table class="table table-bordered datatable">
-            <thead>
-                <tr>
-                    <th>Participant Image</th>
-                    <th>Email</th>
-                    <th>Name of Participant</th>
-                    <th>School</th>
-                    <th>District</th>
-                    <th>Activity</th>
-                    <th>Coach Name</th>
-                    <th>Coach Image</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($registration as $register)
-                  <tr>
-                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
-                      <td>{{ $register->email }}</td>
-                      <td>{{ $register->name_participant }}</td>
-                      <td>{{ $register->school }}</td>
-                      <td>{{ $register->district }}</td>
-                      <td>{{ $register->activities }}</td>
-                      <td>{{ $register->name_coach }}</td>
-                      <td><img src="{{asset('homeAssets/' . $register->co_image)}}" alt="" height="50" width="50"></td>
-                  </tr>
-                @endforeach
-            </tbody>
-          </table>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     </body>

@@ -330,7 +330,16 @@
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
     <!-- end base js -->
-
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.datatable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+              'excel', 'pdf', 'print'
+            ]
+        });
+      });
+    </script>
     <!-- plugin js -->
         <!-- end plugin js -->
 

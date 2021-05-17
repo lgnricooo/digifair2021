@@ -224,7 +224,7 @@ class RegistrationController extends Controller
     }
 
     public function plenTAttendance(){
-        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')-get();
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')->get();
         return view('dashboards.admins.plentattendance', compact('registration'));
     }
 

@@ -11,17 +11,17 @@
   
   <link rel="shortcut icon" href="{{asset('/homeAssets/images/ictu.png')}}">
 
-  <!-- plugin css -->
-  <link href="{{asset('design/assets/fonts/feather-font/css/iconfont.css')}}" rel="stylesheet" />
-  <link href="{{asset('design/assets/plugins/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
-  <!-- end plugin css -->
+<!-- plugin css -->
+<link href="{{asset('design/assets/fonts/feather-font/css/iconfont.css')}}" rel="stylesheet" />
+<link href="{{asset('design/assets/plugins/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet" />
+<link href="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
+<!-- end plugin css -->
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+<link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
   
-  <link href="{{asset('design/css/app.css')}}" rel="stylesheet" />
-  <!-- common css -->
-  
-
   </head>
 <body>
 
@@ -214,7 +214,7 @@
         <nav class="page-breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Registered Participants</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Closing Ceremony</li>
+    <li class="breadcrumb-item active" aria-current="page">Closing Program</li>
   </ol>
 </nav>
 
@@ -224,9 +224,9 @@
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h6 class="card-title">Closing Ceremony Registered Participants</h6>
-        <div class="table-responsive pt-1">
-        <table class="table table-bordered datatable">
+        <h6 class="card-title">Closing Program Registered Participants</h6>
+        <div class="table-responsive pt-2">
+          <table class="table table-bordered datatable">
             <thead>
                 <tr>
                     <th>Participant Image</th>
@@ -276,21 +276,39 @@
   
 
     <!-- base js -->
- 
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="{{asset('design/js/app.js')}}"></script>
-    
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="{{asset('design/assets/plugins/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('design/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+   
     <!-- end base js -->
-
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.datatable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+              'excel', 'pdf', 'print'
+            ]
+        });
+      });
+    </script>
     <!-- plugin js -->
         <!-- end plugin js -->
 
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-
+    
     </body>
 
 <!-- Mirrored from www.nobleui.com/laravel/template/light/tables/basic-tables by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 May 2021 00:52:10 GMT -->
