@@ -158,482 +158,136 @@ class RegistrationController extends Controller
         return view('dashboards.admins.opening', compact('registration'));
     }
 
-    public function openingAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Opening Program/Contest Orientation');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function openingAttendance(){
+        $registration = Registration::where('activities', 'Opening Program/Contest Orientation')->get();
         return view('dashboards.admins.openingAttendance', compact('registration'));
     }
 
-    public function kamustahan(Request $request){
-        $registration = DB::table('registration')->where('activities', 'ICT - KAMUSTAHAN');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-               
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function kamustahan(){
+        $registration = Registration::where('activities', 'ICT - KAMUSTAHAN')->get();
         return view('dashboards.admins.kamustahan', compact('registration'));
     }
 
-    public function handout(Request $request){
-        $registration = DB::table('registration')->where('activities', 'On the Spot Hand-out Making (Elem)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function handout(){
+        $registration = Registration::where('activities', 'On the Spot Hand-out Making (Elem)')->get();
         return view('dashboards.admins.handout', compact('registration'));
     }
 
-    public function handoutAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'On the Spot Hand-out Making (Elem)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function handoutAttendance(){
+        $registration = Registration::where('activities', 'On the Spot Hand-out Making (Elem)')->get();
         return view('dashboards.admins.handoutAttendance', compact('registration'));
     }
 
     public function closing(){
-        $registration = Registration::where('activities', 'Closing Program/Awarding Ceremony');
+        $registration = Registration::where('activities', 'Closing Program/Awarding Ceremony')->get();
         return view('dashboards.admins.closing', compact('registration'));
     }
 
-    public function closingAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Closing Program/Awarding Ceremony');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function closingAttendance(){
+        $registration = Registration::where('activities', 'Closing Program/Awarding Ceremony')->get();
         return view('dashboards.admins.closingAttendance', compact('registration'));
     }
 
-    public function slidejhs(Request $request){
-        $registration = DB::table('registration')->where('activities', 'On the Spot Slide Presentation (JHS)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function slidejhs(){
+        $registration = Registration::where('activities', 'On the Spot Slide Presentation (JHS)')->get();
         return view('dashboards.admins.slidejhs', compact('registration'));
     }
 
-    public function slidejhsAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'On the Spot Slide Presentation (JHS)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function slidejhsAttendance(){
+        $registration = Registration::where('activities', 'On the Spot Slide Presentation (JHS)')->get();
         return view('dashboards.admins.slidejhsAttendance', compact('registration'));
     }
 
-    public function viddoc(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Video Documentary (SHS)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function viddoc(){
+        $registration = Registration::where('activities', 'Video Documentary (SHS)')->get();
         return view('dashboards.admins.viddoc', compact('registration'));
     }
 
-    public function viddocAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Video Documentary (SHS)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function viddocAttendance(){
+        $registration = Registration::where('activities', 'Video Documentary (SHS)')->get();
         return view('dashboards.admins.viddocAttendance', compact('registration'));
     }
 
-    public function plenS(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Virtual Plenary Session (Students)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function plenS(){
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Students)')->get();
         return view('dashboards.admins.plens', compact('registration'));
     }
 
     public function plenSAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Virtual Plenary Session (Students)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Students)')->get();
         return view('dashboards.admins.plensAttendance', compact('registration'));
     }
 
-    public function plenT(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Virtual Plenary Session (Teachers)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function plenT(){
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')-get();
         return view('dashboards.admins.plent', compact('registration'));
     }
 
-    public function plenTAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Virtual Plenary Session (Teachers)');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function plenTAttendance(){
+        $registration = Registration::where('activities', 'Virtual Plenary Session (Teachers)')-get();
         return view('dashboards.admins.plentattendance', compact('registration'));
     }
 
-    public function demo(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Live Demo Teaching');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function demo(){
+        $registration = Registration::where('activities', 'Live Demo Teaching')->get();
         return view('dashboards.admins.demo', compact('registration'));
     }
 
-    public function demoAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Live Demo Teaching');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function demoAttendance(){
+        $registration = Registration::where('activities', 'Live Demo Teaching')->get();
         return view('dashboards.admins.demoAttendance', compact('registration'));
     }
 
-    public function lesson(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Video Lesson Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function lesson(){
+        $registration = Registration::where('activities', 'Video Lesson Making')->get();
+        
         return view('dashboards.admins.lesson', compact('registration'));
     }
 
-    public function lessonAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Video Lesson Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function lessonAttendance(){
+        $registration = Registration::where('activities', 'Video Lesson Making')->get();
         return view('dashboards.admins.lessonAttendance', compact('registration'));
     }
 
-    public function google(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Google App Mash-Up');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function google(){
+        $registration = Registration::where('activities', 'Google App Mash-Up')->get();
         return view('dashboards.admins.google', compact('registration'));
     }
 
-    public function googleAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Google App Mash-Up');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function googleAttendance(){
+        $registration = Registration::where('activities', 'Google App Mash-Up')->get();
         return view('dashboards.admins.googleAttendance', compact('registration'));
     }
 
-    public function sdo(Request $request){
-        $registration = DB::table('registration')->where('activities', 'SDO - Tuguegarao City ID AvP Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function sdo(){
+        $registration = Registration::where('activities', 'SDO - Tuguegarao City ID AvP Making')->get();
+        
         return view('dashboards.admins.sdo', compact('registration'));
     }
 
-    public function sdoAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'SDO - Tuguegarao City ID AvP Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function sdoAttendance(){
+        $registration = Registration::where('activities', 'SDO - Tuguegarao City ID AvP Making')->get();
         return view('dashboards.admins.sdoAttendance', compact('registration'));
     }
 
-    public function national(Request $request){
-        $registration = DB::table('registration')->where('activities', 'National Anthem AvP Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function national(){
+        $registration = Registration::where('activities', 'National Anthem AvP Making')->get();
+        
         return view('dashboards.admins.national', compact('registration'));
     }
 
-    public function nationalAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'National Anthem AvP Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function nationalAttendance(){
+        $registration = Registration::where('activities', 'National Anthem AvP Making')->get();
         return view('dashboards.admins.nationalAttendance', compact('registration'));
     }
 
-    public function digital(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Digital Banner Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Show" class="show btn btn-warning btn-sm showUser">Show</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function digital(){
+        $registration = Registration::where('activities', 'Digital Banner Making')->get();
         return view('dashboards.admins.digital', compact('registration'));
     }
 
-    public function digitalAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'Digital Banner Making');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function digitalAttendance(){
+        $registration = Registration::where('activities', 'Digital Banner Making')->get();
         return view('dashboards.admins.digitalAttendance', compact('registration'));
     }
 
@@ -655,22 +309,8 @@ class RegistrationController extends Controller
         return response()->json($registration);
     }
     
-    public function kamustahanAttendance(Request $request){
-        $registration = DB::table('registration')->where('activities', 'ICT - KAMUSTAHAN');
-        if ($request->ajax()) {
-            $data = $registration;
-            return Datatables()->of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-               
-                $btn = '
-                <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Update" class="btn btn-primary btn-sm editParticipant">Update</a>
-                ';
-                return $btn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
+    public function kamustahanAttendance(){
+        $registration = Registration::where('activities', 'ICT - KAMUSTAHAN')->get();
         return view('dashboards.admins.kamustahanAttendance', compact('registration'));
     }
 

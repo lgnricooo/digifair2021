@@ -233,7 +233,7 @@
       <div class="card-body">
         <h6 class="card-title">National Anthem AvP Making Registered Participants</h6>
         <div class="table-responsive pt-1">
-          <table class="table table-bordered datatable" style="width: 20px">
+        <table class="table table-bordered datatable">
             <thead>
                 <tr>
                     <th>Participant Image</th>
@@ -248,6 +248,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($registration as $register)
+                  <tr>
+                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
+                      <td>{{ $register->email }}</td>
+                      <td>{{ $register->name_participant }}</td>
+                      <td>{{ $register->school }}</td>
+                      <td>{{ $register->district }}</td>
+                      <td>{{ $register->activities }}</td>
+                      <td>{{ $register->name_coach }}</td>
+                      <td><img src="{{asset('homeAssets/' . $register->co_image)}}" alt="" height="50" width="50"></td>
+                  </tr>
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -291,70 +303,7 @@
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-    <script type="text/javascript">
-        $(function(){
-			$.ajaxSetup({
-				headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-			});
-			var table = $('.datatable').DataTable({
-        dom: 'Bfrtip',
-                buttons: [
-                   'excel', 'pdf', 'print'
-                ],
-                processing: true,
-                serverSide: true,
-				responsive: true,
-                ajax: "{{ route('admin.national') }}",
-                columns: [
-                    {
-                        data: 'par_image',
-                        name: 'par_image',
-                        render: function (data, type, row, meta) {
-                            return '<img src=" {{asset('images')}}/' + data +'" height="50" width="50"/>';
-                        }
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-					          {
-                        data: 'name_participant',
-                        name: 'name_participant'
-                    },
-					          {
-                        data: 'school',
-                        name: 'school'
-                    },
-					          {
-                        data: 'district',
-                        name: 'district'
-                    },
-                    {
-                        data: 'activities',
-                        name: 'activities'
-                    },
-                    {
-                        data: 'name_coach',
-                        name: 'name_coach'
-                    },
-                    {
-                        data: 'co_image',
-                        name: 'co_image',
-                        render: function (data, type, row, meta) {
-                            return '<img src=" {{asset('images')}}/' + data +'"/>';
-                        }
-                    },
-                   
-                ]
-            });
-            // setInterval(function() {
-            //     table.draw();
-            // }, 500);
-			//create
-		})
-    </script>
+    
 
     </body>
 

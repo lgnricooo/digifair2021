@@ -263,21 +263,33 @@
       <div class="card-body">
         <h6 class="card-title">National Anthem AvP Making</h6>
         <div class="table-responsive pt-1">
-          <table class="table table-bordered datatable" style="width: 100%">
+        <table class="table table-bordered datatable">
             <thead>
                 <tr>
-                    
                     <th>Participant Image</th>
                     <th>Email</th>
                     <th>Name of Participant</th>
                     <th>School</th>
                     <th>District</th>
                     <th>Activity</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Coach Name</th>
+                    <th>Coach Image</th>
+                    
                 </tr>
             </thead>
             <tbody>
+                @foreach ($registration as $register)
+                  <tr>
+                      <td><img src="{{asset('homeAssets/' . $register->par_image)}}" alt="" height="50" width="50"></td>
+                      <td>{{ $register->email }}</td>
+                      <td>{{ $register->name_participant }}</td>
+                      <td>{{ $register->school }}</td>
+                      <td>{{ $register->district }}</td>
+                      <td>{{ $register->activities }}</td>
+                      <td>{{ $register->name_coach }}</td>
+                      <td><img src="{{asset('homeAssets/' . $register->co_image)}}" alt="" height="50" width="50"></td>
+                  </tr>
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -321,105 +333,7 @@
     <!-- common js -->
     <script src="{{asset('design/assets/js/template.js')}}"></script>
     <!-- end common js -->
-    <script type="text/javascript">
-        $(function(){
-			$.ajaxSetup({
-				headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-			});
-			var table = $('.datatable').DataTable({
-        dom: 'Bfrtip',
-                buttons: [
-                   'excel', 'pdf', 'print'
-                ],
-                processing: true,
-                serverSide: true,
-				responsive: true,
-                ajax: "{{ route('admin.nationalAttendance') }}",
-                columns: [
-                    {
-                        data: 'par_image',
-                        name: 'par_image',
-                        render: function (data, type, row, meta) {
-                            return '<img src=" {{asset('images')}}/' + data +'" height="50" width="50"/>';
-                        }
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-					          {
-                        data: 'name_participant',
-                        name: 'name_participant'
-                    },
-					          {
-                        data: 'school',
-                        name: 'school'
-                    },
-					          {
-                        data: 'district',
-                        name: 'district'
-                    },
-                    {
-                        data: 'activities',
-                        name: 'activities'
-                    },
-                    {
-                        data: 'status',
-                        name: 'status'
-                    },
-
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            });
-            $('body').on('click', '.editParticipant', function() {
-                var user_id = $(this).data('id');
-                var editUrl = '{{ route('admin.edit', ':id') }}';
-                editUrl = editUrl.replace(':id', user_id);
-                $.get(editUrl, function(data) {
-                    $('#modelHeading').html("Change Status");
-                    $('#saveBtn').val("edit-participant");
-                    $('#ajaxModel').modal('show');
-                    $('#user_id').val(data.id);
-                    $('#status').val(data.status);
-                })
-            });
-            $('#saveBtn').click(function(e) {
-                e.preventDefault();
-                $(this).html('Save');
-
-                $.ajax({
-                    data: $('#userForm').serialize(),
-                    url: "{{ route('admin.update') }}",
-                    type: "GET",
-                    dataType: 'json',
-                    success: function(data) {
-
-                        $('#userForm').trigger("reset");
-                        $('#ajaxModel').modal('hide');
-                        swal.fire("Updated Successfully!", data.message, "success");
-                        console.log('Success:', data);
-                        table.draw();
-                    },
-                    error: function(data) {
-                        console.log('Error:', data);
-                        $('#saveBtn').html('Save Changes');
-                    }
-                });
-            });
-            
-            // setInterval(function() {
-            //     table.draw();
-            // }, 500);
-			//create
-		})
-    </script>
+   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     </body>
