@@ -39,14 +39,21 @@
                                     <a href="#" class="noble-ui-logo d-block mb-2">ICTU - <span>DIGIFAIR 2021</span></a>
                                     <h5 class="text-muted font-weight-normal mb-4">Registration</h5>
                                     <form method="post" action="{{route('create.registered')}}" enctype="multipart/form-data">
+                                    @if ( Session::get('error'))
+                                        <div class="alert alert-danger">
+                                                {{Session::get('error')}}
+                                        </div>
+                                    @endif
                                     @csrf
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address:</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" required>
+                                            <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputUsername1">Name of Participant:</label>
                                             <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Name" name="name_participant" required>
+                                            <span class="text-danger">@error('name_participant'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="position">Position:</label>
@@ -59,7 +66,8 @@
                                                 <option value="ALS Teacher">ALS Teacher</option>
                                                 <option value="ALS Student">ALS Student</option>
                                                 <option value="Higher Position">Higher Postions (<i>exp. School Heads/ASDS/SDS</i>)</option>
-                                            </select> 
+                                            </select>
+                                            <span class="text-danger">@error('position'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="school">School:</label>
@@ -133,7 +141,8 @@
                                                 <option value="John Westley College (SHS)">John Westley College (SHS)</option>
                                                 <option value="Methodist Christian School">Methodist Christian School</option>
                                                 <option value="Montessori De Cagayan">Montessori De Cagayan</option>
-                                            </select> 
+                                            </select>
+                                            <span class="text-danger">@error('school'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="district">District:</label>
@@ -143,13 +152,15 @@
                                                 <option value="Tuguegararo West District">Tuguegararo West District</option>
                                                 <option value="Tuguegararo East District">Tuguegararo East District</option>
                                                 <option value="Tuguegararo NorthEast District">Tuguegararo NorthEast District</option>
-                                            </select> 
+                                            </select>
+                                            <span class="text-danger">@error('district'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputUsername1">Name of Coach:</label>
                                             <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Name" name="name_coach">
                                             <p><i>Note: If STUDENT, indicate Coach's Complete Name</i></p>
                                             <p><i>Note: If not STUDENT, put N/A</i></p>
+                                            <span class="text-danger">@error('name_coach'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="activities">Activities:</label>
@@ -172,7 +183,8 @@
                                                 <option value="Digital Banner Making">Digital Banner Making</option>
                                                 <option disabled>-----------Day 3-------------</option>
                                                 <option value="Closing Program/Awarding Ceremony">Closing Program/Awarding Ceremony</option>
-                                            </select> 
+                                            </select>
+                                            <span class="text-danger">@error('activities'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="image1">Participant Image:</label>
@@ -186,6 +198,7 @@
                                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                 </div>
                                             </div>
+                                            <span class="text-danger">@error('par_image'){{ $message }}@enderror</span>
                                         </div>
 
                                         <div class="form-group">
@@ -201,6 +214,7 @@
                                                 </div>
                                             </div>
                                             <p><i>Note: If not STUDENT, please select the same image</i></p>
+                                            <span class="text-danger">@error('co_image'){{ $message }}@enderror</span>
                                         </div>
                                         
                                         <div class="mt-3">

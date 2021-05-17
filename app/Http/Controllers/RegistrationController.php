@@ -38,19 +38,42 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function register(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = 'ADMIN';
+        $user->password = Hash::make($request->password);
+
+        if($user->save()){
+            Alert::success('Success', 'Registered Succesfully');
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('error', 'Failed to Register');
+    }
+
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'name_participant' => 'required',
-            'email' => 'required',
-            'school' => 'required',
-            'activities' => 'required',
-            'position' => 'required',
-            'district' => 'required',
-            'par_image' => 'required|mimes:jpeg,png,jpg|max:10000',
-            'co_image' => 'mimes:jpeg,png,jpg|max:10000',
-            'name_coach' => 'required',
+       $request->validate([
+            'name_participant' => ['required'],
+            'email' => ['required'],
+            'school' => ['required'],
+            'activities' => ['required'],
+            'position' => ['required'],
+            'district' => ['required'],
+            'par_image' => ['required', 'mimes:jpeg,png,jpgmax:10000'],
+            'co_image' => ['mimes:jpeg,png,jpg|max:10000'],
+            'name_coach' => ['required'],
         ]);
+        
+        $registration = new Registration();
 
         $newImagePar = time(). '-' . $request->name_participant. '.'. $request->par_image->extension();
         $request->par_image->move(public_path('homeAssets'), $newImagePar);
@@ -58,25 +81,21 @@ class RegistrationController extends Controller
         $newImageCo = time(). '-' . $request->name_coach. '.'. $request->co_image->extension();
         $request->co_image->move(public_path('homeAssets'), $newImageCo);
 
-        if($validator->failed()){
-            Alert::error('Error!', $validator->messages()->first());
-            return redirect('/registration');
-        }
-        else {
-            Registration::create([
-                'name_participant' => $request->input('name_participant'),
-                'email' => $request->input('email'),
-                'school' => $request->input('school'),
-                'district' => $request->input('district'),
-                'activities' => $request->input('activities'),
-                'position' => $request->input('position'),
-                'par_image' => $newImagePar,
-                'co_image' => $newImageCo,
-                'status' => 'Not Attended',
-                'name_coach' => $request->input('name_coach'),
-            ]);
+        $registration->name_participant = $request->name_participant;
+        $registration->email = $request->email;
+        $registration->position = $request->position;
+        $registration->school = $request->school;
+        $registration->district = $request->district;
+        $registration->name_coach = $request->name_coach;
+        $registration->activities = $request->activities;
+        $registration->par_image = $newImagePar;
+        $registration->co_image = $newImageCo;
+
+        if($registration->save()){
             Alert::success('Success', 'Registered Succesfully');
-            return redirect('/registration');
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('error', 'Failed to Register');
         }
     }
 
