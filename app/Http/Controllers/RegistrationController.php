@@ -213,7 +213,7 @@ class RegistrationController extends Controller
         return view('dashboards.admins.plens', compact('registration'));
     }
 
-    public function plenSAttendance(Request $request){
+    public function plenSAttendance(){
         $registration = Registration::where('activities', 'Virtual Plenary Session (Students)')->get();
         return view('dashboards.admins.plensAttendance', compact('registration'));
     }
